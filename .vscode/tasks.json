@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "build",
+      "command": "C:\\MinGW\\bin\\gcc.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${workspaceFolder}\\main.c",
+        "${workspaceFolder}\\algebra\\algebra.c",
+        "${workspaceFolder}\\notas\\notas.c",
+        "${workspaceFolder}\\tabla\\tabla.c",
+        "-o",
+        "${workspaceFolder}\\main.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "version": "2.0.0"
+}
