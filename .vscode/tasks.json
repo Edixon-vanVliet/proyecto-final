@@ -11,11 +11,12 @@
         "${workspaceFolder}\\algebra\\algebra.c",
         "${workspaceFolder}\\notas\\notas.c",
         "${workspaceFolder}\\tabla\\tabla.c",
+        "${workspaceFolder}\\utils\\utils.c",
         "-o",
         "${workspaceFolder}\\main.exe"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "${workspaceFolder}"
       },
       "problemMatcher": ["$gcc"],
       "group": {
