@@ -45,7 +45,7 @@ int main()
             continue;
         default:
             printf("Opcion elegida no disponible");
-            sleep(2);
+            sleep_console(2);
             clear_console();
             fflush(stdin);
             break;
