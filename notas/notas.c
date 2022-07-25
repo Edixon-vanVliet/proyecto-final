@@ -161,7 +161,9 @@ void print_grades()
         current = current->next;
     }
 
-    printf("\n\nMedia de la clase: %3.2f\n\n", calculate_median(grades, total_grades));
+    printf("\n\n%26s %6.2f\n", "Media de la clase:", calculate_median(grades, total_grades));
+    printf("Nota mas alta de la clase: %6.2f\n", grades[total_grades - 1]);
+    printf("Nota mas baja de la clase: %6.2f\n\n", grades[0]);
 
     printf("Presione cualquier tecla para continuar.");
     pause_console();
