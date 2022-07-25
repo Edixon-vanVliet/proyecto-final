@@ -31,3 +31,11 @@ void sleep_console(int seconds)
     sleep(seconds);
 #endif
 }
+
+void print_character(char character, int times)
+{
+    for (int i = 0; i < times; i++)
+    {
+        printf("%c", character);
+    }
+}
