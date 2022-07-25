@@ -1,8 +1,13 @@
 #include <ctype.h>
+#include <math.h>
 #include <stdio.h>
+#include <string.h>
+
 #include "notas.h"
 #include "students.h"
 #include "../utils/utils.h"
+
+#define GRADE_SPACE 7
 
 // Escribir un programa interactivo en C para procesar las notas de un grupo de
 // estudiantes. Empezar especificando  el número de notas para cada estudiante.
@@ -18,6 +23,11 @@ struct Students students;
 void get_number_of_grades();
 void show_menu();
 void manage_student();
+void print_header();
+void print_grades();
+void print_extra_spaces();
+float calculate_student_median(struct Student *student);
+float calculate_median(float *array, int size);
 
 void notas()
 {
@@ -64,6 +74,8 @@ void show_menu()
             manage_student();
             break;
         case '2':
+            print_header();
+            print_grades();
             break;
         case 's':
             continue;
@@ -110,4 +122,79 @@ void manage_student()
     }
 
     add_student(&students, name, grades, number_of_grades);
+}
+
+void print_header()
+{
+    printf("Nombre               | Calificaciones");
+    print_character(' ', number_of_grades * GRADE_SPACE - 15);
+    printf(" | Media\n");
+    print_character('-', number_of_grades * GRADE_SPACE + (number_of_grades > 1 ? 31 : 39));
+    printf("\n\n");
+}
+
+void print_grades()
+{
+    struct Student *current = students.head;
+    int position = 0, total_grades = students.count * number_of_grades;
+    float grades[total_grades];
+
+    for (int i = 0; i < students.count; i++)
+    {
+        printf("%-20s |", current->name);
+
+        for (int j = 0; j < number_of_grades; j++)
+        {
+            float grade = current->grades[j];
+
+            printf("%7.2f", grade);
+            grades[position] = grade;
+
+            position++;
+        }
+
+        print_extra_spaces();
+
+        printf(" | %3.2f\n", calculate_student_median(current));
+
+        current = current->next;
+    }
+
+    printf("\n\nMedia de la clase: %3.2f\n\n", calculate_median(grades, total_grades));
+
+    printf("Presione cualquier tecla para continuar.");
+    pause_console();
+}
+
+void print_extra_spaces()
+{
+    switch (number_of_grades)
+    {
+    case 1:
+        print_character(' ', 8);
+        break;
+    case 2:
+        print_character(' ', 1);
+        break;
+    default:
+        break;
+    }
+}
+
+float calculate_student_median(struct Student *student)
+{
+    float grades[number_of_grades];
+    memcpy(grades, student->grades, number_of_grades * sizeof(int));
+
+    return calculate_median(student->grades, number_of_grades);
+}
+
+float calculate_median(float *array, int size)
+{
+    sort_array(array, size);
+    float middle = size / 2;
+
+    return size % 2 == 0
+               ? (array[(int)middle - 1] + array[(int)middle]) / 2
+               : array[(int)ceil(middle)];
 }
