@@ -1,7 +1,6 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 
 #include "algebra/algebra.h"
 #include "notas/notas.h"
@@ -14,6 +13,8 @@ int main()
 
     do
     {
+        clear_console();
+
         printf("Bienvenid@, este es el proyecto final de Bryant, Edixon y Jhon\n");
         printf("Eliga la opcion deseada para ver los programas\n\n");
 
@@ -26,6 +27,8 @@ int main()
         printf(">> ");
         scanf(" %c", &option);
         option = tolower(option);
+
+        clear_console();
 
         switch (option)
         {
@@ -41,14 +44,12 @@ int main()
         case 's':
             continue;
         default:
-            clear_console();
             printf("Opcion elegida no disponible");
             sleep(2);
             clear_console();
             fflush(stdin);
             break;
         }
-
     } while (option != 's');
 
     return 0;
