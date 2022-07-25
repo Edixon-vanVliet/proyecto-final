@@ -3,5 +3,6 @@
 
 void clear_console();
 void pause_console();
+void sleep_console(int seconds);
 
 #endif
