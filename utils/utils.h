@@ -2,5 +2,6 @@
 #define UTILS_DOT_H
 
 void clear_console();
+void pause_console();
 
 #endif
