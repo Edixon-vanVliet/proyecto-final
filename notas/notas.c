@@ -1,6 +1,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include "notas.h"
+#include "students.h"
 #include "../utils/utils.h"
 
 // Escribir un programa interactivo en C para procesar las notas de un grupo de
@@ -12,8 +13,11 @@
 //  media para cada estudiante.
 
 int number_of_grades;
+struct Students students;
+
 void get_number_of_grades();
 void show_menu();
+void manage_student();
 
 void notas()
 {
@@ -57,6 +61,7 @@ void show_menu()
         switch (option)
         {
         case '1':
+            manage_student();
             break;
         case '2':
             break;
@@ -71,4 +76,38 @@ void show_menu()
             break;
         }
     } while (option != 's');
+}
+
+void manage_student()
+{
+    char name[20];
+    float grades[number_of_grades];
+
+    printf("Escriba el nombre del estudiante:\n\n");
+
+    printf(">> ");
+    scanf("%19s", name);
+
+    for (int i = 0; i < number_of_grades; i++)
+    {
+        do
+        {
+            clear_console();
+
+            printf("Introduzca la nota #%d\n\n", i + 1);
+            scanf(" %f", &grades[i]);
+
+            if (grades[i] < 0 || grades[i] > 100)
+            {
+                printf("\nLa nota debe de ser:\n");
+                printf("1) Mayor o igual a 0\n");
+                printf("2) Menor o igual a 100\n\n");
+
+                printf("Presione cualquier tecla para continuar.");
+                pause_console();
+            }
+        } while (grades[i] < 0 || grades[i] > 100);
+    }
+
+    add_student(&students, name, grades, number_of_grades);
 }
