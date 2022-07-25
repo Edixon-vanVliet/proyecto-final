@@ -108,6 +108,7 @@ void manage_student()
             clear_console();
 
             printf("Introduzca la nota #%d\n\n", i + 1);
+            printf(">> ");
             scanf(" %f", &grades[i]);
 
             if (grades[i] < 0 || grades[i] > 100)
