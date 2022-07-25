@@ -78,6 +78,7 @@ void show_menu()
             print_grades();
             break;
         case 's':
+            free_students(&students);
             continue;
         default:
             printf("Opcion elegida no disponible");
