@@ -9,7 +9,20 @@
 // la clase, seguida  por el nombre, las notas individuales de los exámenes y la
 //  media para cada estudiante.
 
+int number_of_grades;
+void get_number_of_grades();
 void notas()
 {
-    printf("Hello notas\n");
+    get_number_of_grades();
+void get_number_of_grades()
+{
+    do
+    {
+        printf("Hola. Aqui puedes manejar las notas de los estudiantes.\n");
+        printf("Primero especifica la cantidad de notas por cada estudiante.\n\n");
+
+        printf(">> ");
+        scanf(" %u", &number_of_grades);
+    } while (number_of_grades <= 0);
+}
 }
