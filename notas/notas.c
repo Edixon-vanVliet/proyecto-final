@@ -156,7 +156,7 @@ void print_grades()
 
         print_extra_spaces();
 
-        printf(" | %3.2f\n", calculate_student_median(current));
+        printf(" | %6.2f\n", calculate_student_median(current));
 
         current = current->next;
     }
