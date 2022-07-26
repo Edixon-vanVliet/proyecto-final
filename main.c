@@ -47,7 +47,6 @@ int main()
             printf("Opcion elegida no disponible");
             sleep_console(2);
             clear_console();
-            fflush(stdin);
             break;
         }
     } while (option != 's');
