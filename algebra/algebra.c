@@ -13,7 +13,6 @@
 int array_size;
 
 void get_numbers(int *numbers, int *absolute_numbers);
-void print_numbers(char *message, int *array);
 
 void algebra()
 {
