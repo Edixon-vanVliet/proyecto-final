@@ -2,5 +2,9 @@
 #define UTILS_DOT_H
 
 void clear_console();
+void pause_console();
+void sleep_console(int seconds);
+void print_character(char character, int times);
+void sort_array(float *array, int size);
 
 #endif
