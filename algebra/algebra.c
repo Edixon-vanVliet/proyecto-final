@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "algebra.h"
-#include "../utils/utils.h"
+#include "../utils/console.h"
 
 // Hacer un programa que reordene una lista de números en una secuencia de
 // valores algebraicos en forma Ascendente (de menor a mayor) en valor absoluto,

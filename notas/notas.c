@@ -5,7 +5,8 @@
 
 #include "notas.h"
 #include "students.h"
-#include "../utils/utils.h"
+#include "../utils/array.h"
+#include "../utils/console.h"
 
 #define GRADE_SPACE 7
 

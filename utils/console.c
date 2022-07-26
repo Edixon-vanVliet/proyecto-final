@@ -1,9 +1,9 @@
 #include <conio.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include "utils.h"
 #include <unistd.h>
 #include <windows.h>
+
+#include "console.h"
 
 void clear_console()
 {
@@ -37,21 +37,5 @@ void print_character(char character, int times)
     for (int i = 0; i < times; i++)
     {
         printf("%c", character);
-    }
-}
-
-void sort_array(float *array, int size)
-{
-    for (int i = 0; i < size; ++i)
-    {
-        for (int j = i + 1; j < size; ++j)
-        {
-            if (array[i] > array[j])
-            {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-        }
     }
 }

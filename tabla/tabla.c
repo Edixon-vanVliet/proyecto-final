@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include "tabla.h"
-#include "../utils/utils.h"
+#include "../utils/console.h"
 
 // Escribir un programa que pida por teclado una serie de números enteros, los
 // almacene en una tabla alocada dinámicamente, escriba por pantalla de manera
