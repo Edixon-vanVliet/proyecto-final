@@ -1,47 +1,83 @@
 #include <stdio.h>
+
 #include "tabla.h"
+#include "../utils/utils.h"
 
 // Escribir un programa que pida por teclado una serie de números enteros, los
 // almacene en una tabla alocada dinámicamente, escriba por pantalla de manera
 // alocada todos los números introducidos indicando además cuál es el mayor y el
 // menor.
 
+int array_size;
+
+void get_array_size();
+void get_numbers(int *min, int *max, int *numbers);
+void print_numbers(int *min, int *max, int *numbers);
+
 void tabla()
 {
-    int mayor = 0;
-    int menor = 0;
-    int numeros[100];
-    int cantidadNumeros = 0;
-    printf("Cuantos numeros desea introducir? ");
-    scanf("%d", &cantidadNumeros);
-    for (int i = 0; i < cantidadNumeros; i++)
+    get_array_size();
+
+    int min, max, numbers[array_size];
+
+    get_numbers(&min, &max, numbers);
+    print_numbers(&min, &max, numbers);
+}
+
+void get_array_size()
+{
+    printf("Cuantos numeros desea introducir?\n\n");
+    printf(">> ");
+    scanf("%d", &array_size);
+}
+
+void get_numbers(int *min, int *max, int *numbers)
+{
+    for (int i = 0; i < array_size; i++)
     {
-        printf("\nCual es valor numero #%d ", i + 1);
-        scanf("%d", &numeros[i]);
+        clear_console();
+        printf("Cual es valor numero #%d\n\n", i + 1);
+        printf(">> ");
+        scanf("%d", &numbers[i]);
+
         if (i == 0)
         {
-
-            mayor = numeros[i];
-            menor = numeros[i];
+            *max = numbers[i];
+            *min = numbers[i];
         }
-        else if (numeros[i] < menor)
+        else if (numbers[i] < *min)
         {
-
-            menor = numeros[i];
+            *min = numbers[i];
         }
-
-
-        else if (numeros[i] > mayor)
+        else if (numbers[i] > *max)
         {
-            mayor = numeros[i];
+            *max = numbers[i];
         }
     }
-    printf("\nEl numero menor introducido es: %i ", menor);
-    printf("\nEl numero mayor introducido es: %i \n", mayor);
 
-    for (int i = 0; i < cantidadNumeros; i++)
+    clear_console();
+}
+
+void print_numbers(int *min, int *max, int *numbers)
+{
+    printf("El menor numero introducido es: %i\n", *min);
+    printf("El mayor numero introducido es: %i\n", *max);
+    printf("   La secuencia introducida es: ");
+
+    for (int i = 0; i < array_size; i++)
     {
-        printf("%d,", numeros[i]);
+        printf("%d", numbers[i]);
+
+        if (i != array_size - 1)
+        {
+            printf(", ");
+        }
+        else
+        {
+            printf("\n\n");
+        }
     }
-    printf("\n");
+
+    printf("Presione cualquier tecla para continuar.");
+    pause_console();
 }
