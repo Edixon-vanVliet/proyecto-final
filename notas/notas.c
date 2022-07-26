@@ -21,7 +21,6 @@
 int number_of_grades;
 struct Students students;
 
-void get_number_of_grades();
 void show_menu();
 void manage_student();
 void print_header();
@@ -32,21 +31,10 @@ float calculate_median(float *array, int size);
 
 void notas()
 {
-    get_number_of_grades();
+    number_of_grades = get_array_size("Hola. Aqui puedes manejar las notas de los estudiantes.\n"
+                                      "Primero especifica la cantidad de notas por cada estudiante.");
 
     show_menu();
-}
-
-void get_number_of_grades()
-{
-    do
-    {
-        printf("Hola. Aqui puedes manejar las notas de los estudiantes.\n");
-        printf("Primero especifica la cantidad de notas por cada estudiante.\n\n");
-
-        printf(">> ");
-        scanf(" %u", &number_of_grades);
-    } while (number_of_grades <= 0);
 }
 
 void show_menu()

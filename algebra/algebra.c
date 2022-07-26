@@ -17,7 +17,7 @@ void print_numbers(char *message, int *array);
 
 void algebra()
 {
-    array_size = get_array_size();
+    array_size = get_array_size("Cuantos numeros desea introducir?");
 
     int numbers[array_size], absolute_numbers[array_size];
 

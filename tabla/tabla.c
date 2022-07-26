@@ -16,7 +16,7 @@ void print_numbers(int *min, int *max, int *numbers);
 
 void tabla()
 {
-    array_size = get_array_size();
+    array_size = get_array_size("Cuantos numeros desea introducir?");
 
     int min, max, numbers[array_size];
 
