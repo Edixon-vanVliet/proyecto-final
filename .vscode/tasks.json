@@ -12,7 +12,8 @@
         "${workspaceFolder}\\notas\\notas.c",
         "${workspaceFolder}\\notas\\students.c",
         "${workspaceFolder}\\tabla\\tabla.c",
-        "${workspaceFolder}\\utils\\utils.c",
+        "${workspaceFolder}\\utils\\array.c",
+        "${workspaceFolder}\\utils\\console.c",
         "-o",
         "${workspaceFolder}\\main.exe"
       ],

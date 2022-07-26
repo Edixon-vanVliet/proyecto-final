@@ -5,7 +5,7 @@
 #include "algebra/algebra.h"
 #include "notas/notas.h"
 #include "tabla/tabla.h"
-#include "utils/utils.h"
+#include "utils/console.h"
 
 int main()
 {

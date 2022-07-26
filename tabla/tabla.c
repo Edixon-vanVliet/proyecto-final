@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 #include "tabla.h"
-#include "../utils/utils.h"
+#include "../utils/array.h"
+#include "../utils/console.h"
 
 // Escribir un programa que pida por teclado una serie de números enteros, los
 // almacene en una tabla alocada dinámicamente, escriba por pantalla de manera
@@ -10,28 +11,20 @@
 
 int array_size;
 
-void get_array_size();
-void get_numbers(int *min, int *max, int *numbers);
+void obtain_numbers(int *min, int *max, int *numbers);
 void print_numbers(int *min, int *max, int *numbers);
 
 void tabla()
 {
-    get_array_size();
+    array_size = get_array_size();
 
     int min, max, numbers[array_size];
 
-    get_numbers(&min, &max, numbers);
+    obtain_numbers(&min, &max, numbers);
     print_numbers(&min, &max, numbers);
 }
 
-void get_array_size()
-{
-    printf("Cuantos numeros desea introducir?\n\n");
-    printf(">> ");
-    scanf("%d", &array_size);
-}
-
-void get_numbers(int *min, int *max, int *numbers)
+void obtain_numbers(int *min, int *max, int *numbers)
 {
     for (int i = 0; i < array_size; i++)
     {
@@ -62,21 +55,8 @@ void print_numbers(int *min, int *max, int *numbers)
 {
     printf("El menor numero introducido es: %i\n", *min);
     printf("El mayor numero introducido es: %i\n", *max);
-    printf("   La secuencia introducida es: ");
-
-    for (int i = 0; i < array_size; i++)
-    {
-        printf("%d", numbers[i]);
-
-        if (i != array_size - 1)
-        {
-            printf(", ");
-        }
-        else
-        {
-            printf("\n\n");
-        }
-    }
+    print_array("   La secuencia introducida es: ", numbers, array_size);
+    printf("\n");
 
     printf("Presione cualquier tecla para continuar.");
     pause_console();
