@@ -11,7 +11,7 @@
 
 int array_size;
 
-void get_numbers(int *min, int *max, int *numbers);
+void obtain_numbers(int *min, int *max, int *numbers);
 void print_numbers(int *min, int *max, int *numbers);
 
 void tabla()
@@ -20,11 +20,11 @@ void tabla()
 
     int min, max, numbers[array_size];
 
-    get_numbers(&min, &max, numbers);
+    obtain_numbers(&min, &max, numbers);
     print_numbers(&min, &max, numbers);
 }
 
-void get_numbers(int *min, int *max, int *numbers)
+void obtain_numbers(int *min, int *max, int *numbers)
 {
     for (int i = 0; i < array_size; i++)
     {
