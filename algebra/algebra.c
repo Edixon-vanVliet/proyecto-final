@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "algebra.h"
+#include "../utils/array.h"
 #include "../utils/console.h"
 
 // Hacer un programa que reordene una lista de números en una secuencia de
@@ -13,7 +14,6 @@ int array_size;
 
 void get_array_size();
 void get_numbers(int *numbers, int *absolute_numbers);
-void sort(int *array);
 void print_numbers(char *message, int *array);
 
 void algebra()
@@ -24,8 +24,8 @@ void algebra()
 
     get_numbers(numbers, absolute_numbers);
 
-    sort(numbers);
-    sort(absolute_numbers);
+    sort_array(numbers, array_size);
+    sort_array(absolute_numbers, array_size);
 
     print_numbers("Secuencia ordenada con signo: ", numbers);
     print_numbers("Secuencia ordenada sin signo: ", absolute_numbers);
@@ -54,22 +54,6 @@ void get_numbers(int *numbers, int *absolute_numbers)
     }
 
     clear_console();
-}
-
-void sort(int *array)
-{
-    for (int i = 0; i < array_size; ++i)
-    {
-        for (int j = i + 1; j < array_size; ++j)
-        {
-            if (array[i] > array[j])
-            {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-        }
-    }
 }
 
 void print_numbers(char *message, int *array)

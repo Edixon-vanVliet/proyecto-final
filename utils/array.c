@@ -2,17 +2,20 @@
 
 #include "array.h"
 
-void sort_array(float *array, int size)
+void sort_array(void *array, int size)
 {
     for (int i = 0; i < size; ++i)
     {
         for (int j = i + 1; j < size; ++j)
         {
-            if (array[i] > array[j])
+            int *left = &((int *)array)[i];
+            int *right = &((int *)array)[j];
+
+            if (*left > *right)
             {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                int temp = *left;
+                *left = *right;
+                *right = temp;
             }
         }
     }
