@@ -55,21 +55,8 @@ void print_numbers(int *min, int *max, int *numbers)
 {
     printf("El menor numero introducido es: %i\n", *min);
     printf("El mayor numero introducido es: %i\n", *max);
-    printf("   La secuencia introducida es: ");
-
-    for (int i = 0; i < array_size; i++)
-    {
-        printf("%d", numbers[i]);
-
-        if (i != array_size - 1)
-        {
-            printf(", ");
-        }
-        else
-        {
-            printf("\n\n");
-        }
-    }
+    print_array("   La secuencia introducida es: ", numbers, array_size);
+    printf("\n");
 
     printf("Presione cualquier tecla para continuar.");
     pause_console();

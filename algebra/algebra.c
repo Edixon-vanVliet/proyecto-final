@@ -26,8 +26,8 @@ void algebra()
     sort_array(numbers, array_size);
     sort_array(absolute_numbers, array_size);
 
-    print_numbers("Secuencia ordenada con signo: ", numbers);
-    print_numbers("Secuencia ordenada sin signo: ", absolute_numbers);
+    print_array("Secuencia ordenada con signo: ", numbers, array_size);
+    print_array("Secuencia ordenada sin signo: ", absolute_numbers, array_size);
 
     printf("\nPresione cualquier tecla para continuar.");
     pause_console();
@@ -46,23 +46,4 @@ void get_numbers(int *numbers, int *absolute_numbers)
     }
 
     clear_console();
-}
-
-void print_numbers(char *message, int *array)
-{
-    printf("%s", message);
-
-    for (int i = 0; i < array_size; i++)
-    {
-        printf("%d", array[i]);
-
-        if (i != array_size - 1)
-        {
-            printf(", ");
-        }
-        else
-        {
-            printf("\n");
-        }
-    }
 }

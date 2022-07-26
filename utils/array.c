@@ -13,6 +13,25 @@ int get_array_size()
     return array_size;
 }
 
+void print_array(char *message, int *array, int size)
+{
+    printf("%s", message);
+
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d", array[i]);
+
+        if (i != size - 1)
+        {
+            printf(", ");
+        }
+        else
+        {
+            printf("\n");
+        }
+    }
+}
+
 void sort_array(void *array, int size)
 {
     for (int i = 0; i < size; ++i)
