@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "tabla.h"
+#include "../utils/array.h"
 #include "../utils/console.h"
 
 // Escribir un programa que pida por teclado una serie de números enteros, los
@@ -10,25 +11,17 @@
 
 int array_size;
 
-void get_array_size();
 void get_numbers(int *min, int *max, int *numbers);
 void print_numbers(int *min, int *max, int *numbers);
 
 void tabla()
 {
-    get_array_size();
+    array_size = get_array_size();
 
     int min, max, numbers[array_size];
 
     get_numbers(&min, &max, numbers);
     print_numbers(&min, &max, numbers);
-}
-
-void get_array_size()
-{
-    printf("Cuantos numeros desea introducir?\n\n");
-    printf(">> ");
-    scanf("%d", &array_size);
 }
 
 void get_numbers(int *min, int *max, int *numbers)

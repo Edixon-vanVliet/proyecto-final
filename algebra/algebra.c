@@ -12,13 +12,12 @@
 
 int array_size;
 
-void get_array_size();
 void get_numbers(int *numbers, int *absolute_numbers);
 void print_numbers(char *message, int *array);
 
 void algebra()
 {
-    get_array_size();
+    array_size = get_array_size();
 
     int numbers[array_size], absolute_numbers[array_size];
 
@@ -32,13 +31,6 @@ void algebra()
 
     printf("\nPresione cualquier tecla para continuar.");
     pause_console();
-}
-
-void get_array_size()
-{
-    printf("Cuantos numeros desea introducir?\n\n");
-    printf(">> ");
-    scanf("%d", &array_size);
 }
 
 void get_numbers(int *numbers, int *absolute_numbers)
