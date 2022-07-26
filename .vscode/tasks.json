@@ -3,19 +3,19 @@
     {
       "type": "cppbuild",
       "label": "build",
-      "command": "C:\\MinGW\\bin\\gcc.exe",
+      "command": "gcc.exe",
       "args": [
         "-fdiagnostics-color=always",
         "-g",
-        "${workspaceFolder}\\main.c",
-        "${workspaceFolder}\\algebra\\algebra.c",
-        "${workspaceFolder}\\notas\\notas.c",
-        "${workspaceFolder}\\notas\\students.c",
-        "${workspaceFolder}\\tabla\\tabla.c",
-        "${workspaceFolder}\\utils\\array.c",
-        "${workspaceFolder}\\utils\\console.c",
+        "${workspaceFolder}/main.c",
+        "${workspaceFolder}/algebra/algebra.c",
+        "${workspaceFolder}/notas/notas.c",
+        "${workspaceFolder}/notas/students.c",
+        "${workspaceFolder}/tabla/tabla.c",
+        "${workspaceFolder}/utils/array.c",
+        "${workspaceFolder}/utils/console.c",
         "-o",
-        "${workspaceFolder}\\main.exe"
+        "${workspaceFolder}/main.exe"
       ],
       "options": {
         "cwd": "${workspaceFolder}"

@@ -6,7 +6,7 @@
       "type": "cppdbg",
       "preLaunchTask": "build",
       "request": "launch",
-      "program": "${workspaceFolder}\\main.exe",
+      "program": "${workspaceFolder}/main.exe",
       "environment": [{ "name": "config", "value": "Debug" }],
       "cwd": "${workspaceFolder}"
     }

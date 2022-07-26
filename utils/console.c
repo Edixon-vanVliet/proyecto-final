@@ -1,7 +1,11 @@
+#ifdef _WIN32
 #include <conio.h>
-#include <stdio.h>
-#include <unistd.h>
 #include <windows.h>
+#endif
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #include "console.h"
 
@@ -16,6 +20,8 @@ void clear_console()
 
 void pause_console()
 {
+    fflush(stdin);
+
 #ifdef _WIN32
     getch();
 #else
@@ -25,6 +31,8 @@ void pause_console()
 
 void sleep_console(int seconds)
 {
+    fflush(stdout);
+
 #ifdef _WIN32
     Sleep(seconds * 1000);
 #else
