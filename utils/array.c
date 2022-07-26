@@ -1,14 +1,27 @@
 #include <stdio.h>
 
 #include "array.h"
+#include "console.h"
 
-int get_array_size()
+int get_array_size(char *message)
 {
     int array_size;
 
-    printf("Cuantos numeros desea introducir?\n\n");
-    printf(">> ");
-    scanf("%d", &array_size);
+    do
+    {
+        clear_console();
+
+        printf("%s\n\n", message);
+
+        printf(">> ");
+        scanf("%d", &array_size);
+
+        if (array_size <= 0)
+        {
+            printf("\nEscriba un numero mayor a 0");
+            sleep_console(2);
+        }
+    } while (array_size <= 0);
 
     return array_size;
 }
